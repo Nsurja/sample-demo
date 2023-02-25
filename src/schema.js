@@ -10,12 +10,7 @@ const schema = {
   properties: {
     name: { type: "string" },
     email: { type: "string" },
-    phone: {
-      type: "integer",
-      minimum: 0,
-      maximum: 100,
-    },
-    developer: {
+    role: {
       type: "string",
       options: [
         {
@@ -28,14 +23,21 @@ const schema = {
         },
       ],
     },
-    message: {
+    experience: {
+      description: "work experience in years",
+      type: "integer",
+      minimum: 0,
+      maximum: 100,
+    },
+
+    info: {
       type: "string",
       uniforms: {
         component: LongTextField,
       },
     },
   },
-  required: ["name", "email", "message"],
+  required: ["name", "email"],
 };
 
 function createValidator(schema) {
